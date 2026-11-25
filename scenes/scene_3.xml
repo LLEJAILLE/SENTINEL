@@ -1,0 +1,10 @@
+<mujoco model="Sentinel - Diagonales">
+    <include file="scene_variantes_base.xml"/>
+    <worldbody>
+        <geom name="obstacle1" type="box" pos="2.05 0 0.7" size="0.65 0.12 0.5" euler="0 0 45" rgba="0.32 0.38 0.42 1"/>
+        <geom name="obstacle2" type="box" pos="-2.05 0 0.7" size="0.65 0.12 0.5" euler="0 0 45" rgba="0.32 0.38 0.42 1"/>
+        <geom name="obstacle3" type="box" pos="0 1.45 0.65" size="0.45 0.12 0.45" euler="0 0 -45" rgba="0.32 0.38 0.42 1"/>
+        <geom name="obstacle4" type="box" pos="0 -1.45 0.65" size="0.45 0.12 0.45" euler="0 0 -45" rgba="0.32 0.38 0.42 1"/>
+        <geom name="obstacle5" type="cylinder" pos="0 0 0.65" size="0.22 0.45" rgba="0.32 0.38 0.42 1"/>
+    </worldbody>
+</mujoco>

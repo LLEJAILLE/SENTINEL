@@ -1,0 +1,53 @@
+<mujocoinclude>
+    <compiler angle="degree" autolimits="true"/>
+    <option timestep="0.005" gravity="0 0 -9.81" integrator="implicitfast"/>
+    <default>
+        <joint damping="0.3" armature="0.005"/>
+        <geom friction="1.4 0.005 0.0001" condim="3"/>
+    </default>
+    <visual>
+        <headlight diffuse="0.6 0.6 0.6" ambient="0.3 0.3 0.3" specular="0 0 0"/>
+        <rgba haze="0.65 0.82 0.98 1"/>
+        <global azimuth="-130" elevation="-20"/>
+    </visual>
+    <asset>
+        <texture type="skybox" builtin="gradient" rgb1="0.7 0.85 1.0" rgb2="0.15 0.45 0.85" width="512" height="3072"/>
+        <texture name="floor_tex" type="2d" builtin="checker" rgb1="0.21 0.25 0.29" rgb2="0.28 0.32 0.36" width="512" height="512"/>
+        <material name="floor_mat" texture="floor_tex" texrepeat="12 12" reflectance="0.10"/>
+        <material name="frame_mat" rgba="0.12 0.15 0.18 1" specular="0.35" shininess="0.45"/>
+        <material name="panel_mat" rgba="0.26 0.30 0.33 1" specular="0.25" shininess="0.35"/>
+        <material name="accent_mat" rgba="0.85 0.48 0.12 1" specular="0.3"/>
+        <material name="rubber_mat" rgba="0.055 0.060 0.065 1"/>
+        <material name="metal_mat" rgba="0.52 0.56 0.59 1" specular="0.55" shininess="0.7"/>
+        <material name="glass_mat" rgba="0.06 0.18 0.25 1" specular="0.7" shininess="0.9"/>
+    </asset>
+    <worldbody>
+        <light pos="0 0 7" dir="0 0 -1" directional="true"/>
+        <geom name="floor" type="plane" size="10 10 0.1" material="floor_mat"/>
+        <include file="sentinel_rover.xml"/>
+        <geom name="wall_north" type="box" pos="0 8 1" size="8 0.1 1" rgba="0.8 0.8 0.8 1"/>
+        <geom name="wall_south" type="box" pos="0 -8 1" size="8 0.1 1" rgba="0.8 0.8 0.8 1"/>
+        <geom name="wall_east" type="box" pos="8 0 1" size="0.1 8 1" rgba="0.8 0.8 0.8 1"/>
+        <geom name="wall_west" type="box" pos="-8 0 1" size="0.1 8 1" rgba="0.8 0.8 0.8 1"/>
+        <geom name="central_base" type="cylinder" pos="0 0 0.1" size="3 0.1" rgba="0.8 0.8 0.8 1"/>
+        <geom name="enemy1" type="sphere" pos="0.85 1.1 0.42" size="0.22" rgba="0.8 0.2 0.2 1"/>
+        <geom name="enemy2" type="sphere" pos="1.8 1.3 0.4" size="0.2" rgba="0.8 0.2 0.2 1"/>
+        <geom name="enemy3" type="sphere" pos="-0.85 -1.1 0.42" size="0.22" rgba="0.8 0.2 0.2 1"/>
+        <geom name="enemy4" type="sphere" pos="-1.9 -1.15 0.4" size="0.2" rgba="0.8 0.2 0.2 1"/>
+        <geom name="enemy5" type="sphere" pos="-1.25 0.65 0.41" size="0.21" rgba="0.8 0.2 0.2 1"/>
+        <geom name="enemy6" type="sphere" pos="1.25 -0.65 0.41" size="0.21" rgba="0.8 0.2 0.2 1"/>
+        <geom name="enemy7" type="sphere" pos="0 2.1 0.44" size="0.24" rgba="0.8 0.2 0.2 1"/>
+        <geom name="enemy8" type="sphere" pos="0 -2.1 0.44" size="0.24" rgba="0.8 0.2 0.2 1"/>
+        <geom name="enemy9" type="sphere" pos="0.48 0 0.4" size="0.2" rgba="0.8 0.2 0.2 1"/>
+        <geom name="enemy10" type="sphere" pos="-0.5 0 0.42" size="0.22" rgba="0.8 0.2 0.2 1"/>
+        <camera name="overview_cam" pos="0 0 10" xyaxes="1 0 0 0 1 0" fovy="90"/>
+    </worldbody>
+    <actuator>
+        <velocity name="motor_rl" joint="wheel_rl" kv="10" ctrlrange="-10 10"/>
+        <velocity name="motor_rr" joint="wheel_rr" kv="10" ctrlrange="-10 10"/>
+        <position name="steering_fl" joint="steer_fl" kp="30" kv="3" ctrlrange="-0.61 0.61"/>
+        <position name="steering_fr" joint="steer_fr" kp="30" kv="3" ctrlrange="-0.61 0.61"/>
+        <position name="payload_yaw_motor" joint="payload_yaw" kp="20" ctrlrange="-2.967 2.967"/>
+        <position name="payload_pitch_motor" joint="payload_pitch" kp="15" ctrlrange="-0.785 1.134"/>
+    </actuator>
+</mujocoinclude>

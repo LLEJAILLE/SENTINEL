@@ -1,0 +1,11 @@
+<mujoco model="Sentinel - Remparts">
+    <include file="scene_variantes_base.xml"/>
+    <worldbody>
+        <geom name="obstacle1" type="box" pos="1.4 1.0 0.55" size="0.15 0.55 0.35" rgba="0.32 0.38 0.42 1"/>
+        <geom name="obstacle2" type="box" pos="-1.4 -1.0 0.55" size="0.15 0.55 0.35" rgba="0.32 0.38 0.42 1"/>
+        <geom name="obstacle3" type="box" pos="-1.25 1.15 0.8" size="0.6 0.12 0.6" rgba="0.32 0.38 0.42 1"/>
+        <geom name="obstacle4" type="box" pos="1.25 -1.15 0.8" size="0.6 0.12 0.6" rgba="0.32 0.38 0.42 1"/>
+        <geom name="obstacle5" type="box" pos="0 1.5 0.5" size="0.35 0.15 0.3" rgba="0.32 0.38 0.42 1"/>
+        <geom name="obstacle6" type="box" pos="0 -1.5 0.5" size="0.35 0.15 0.3" rgba="0.32 0.38 0.42 1"/>
+    </worldbody>
+</mujoco>
